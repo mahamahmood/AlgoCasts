@@ -12,6 +12,30 @@
 //   4
 //   buzz
 
-function fizzBuzz(n) {}
+// pseudocode
+// loop through the nums from 1 to n
+// write if statement to check if % 3 log fizz, else check if % % log buzz, else if both 3 % and 5 % log fizzbuzz
+
+function fizzBuzz(n) {
+
+    for (let i = 1; i <= n; i++) {
+        // if the number a multiple of 3 and 5?
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log(`fizzbuzz`);
+        // if number a multiple of 3
+        } else if (i % 3 === 0) {
+            console.log(`fizz`);
+        // if number a multiple of 5
+        } else if (i % 5 === 0) {
+            console.log(`buzz`);
+        // if number anything else
+        } else {
+            console.log(i);
+        }
+    }
+
+}
+
+fizzBuzz(100);
 
 module.exports = fizzBuzz;
