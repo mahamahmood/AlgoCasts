@@ -7,6 +7,43 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+
+// pseudocode
+// create a variable reversed 
+// loop through each character in the provided string, take the character and add it to the start of 'reversed'
+// check if palindrome by creating a conditional to check the reversed and return true or false
+
+//function palindrome(str) {
+    
+    // let reversed = '';
+
+    // for (let char of str) {
+    //     reversed = char + reversed;
+    // }
+
+    // if (reversed === str) {
+    //     return true;
+    // } else if (reversed !== str) {
+    //     return false;
+    // }
+//}
+
+
+// solution two
+function palindrome(str) {
+    const reversed = str.split('').reverse().join('');
+    return str === reversed;
+}
+
+
+// solution three
+// turn string to an array 
+// use every() array helper
+
+//function palindrome(str) {
+    // return str.split('').every((char, i) => {
+    //     return char === str[str.length - i - 1];
+    // });
+//}
 
 module.exports = palindrome;
