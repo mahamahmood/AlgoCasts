@@ -8,6 +8,36 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+// solution 1
+// pesudocode
+// create a char map of both strings and compare them together. if both have the same quaninity of chars then it's anagram
+// 
+function anagrams(stringA, stringB) {
+    const aCharMap = buildCharMap(stringA);
+    const bCharMap = buildCharMap(stringB);
+
+    if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
+        return false;
+    }
+
+    for (let char in aCharMap) {
+        if (aCharMap[char] !== bCharMap[char]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+// create a helper function that builds a char map of a given string
+function buildCharMap(str) {
+    const charMap = {};
+
+    for (let char of str.replace(/[^\w]/g, '').toLowerCase()) {
+        charMap[char] = charMap[char] + 1 || 1;
+    }
+
+    return charMap;
+}
 
 module.exports = anagrams;
