@@ -1,6 +1,7 @@
 // --- Directions
 // Write a function that accepts an integer N
 // and returns a NxN spiral matrix.
+// return an array of arrays starting from 1 to N * N clockwise 
 // --- Examples
 //   matrix(2)
 //     [[1, 2],
@@ -15,6 +16,64 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 
-function matrix(n) {}
 
+// pseudocode
+// create empty array of arrays called 'results'
+// create a counter variable, starting at 1
+// as long as while (start column <= end column) and (start row <= end row)
+// // loop from start column to end column
+// // // at results[start_row][i] assign counter variable
+// // // increment counter
+// // increment start row
+// // loop from start row to end row
+// // // at results[i][end_column] assign counter variable
+// // // increment counter
+// // decrement end column
+// // repeat for other two sides
+
+function matrix(n) {
+    const results = [];
+
+    for (let i = 0; i < n; i++) {
+        results.push([]);
+    }
+    // console.log(results);
+
+    let counter = 1;
+    let startColumn = 0;
+    let endColumn = n - 1;
+    let startRow = 0;
+    let endRow = n - 1;
+
+    while (startColumn <= endColumn && startRow <= endRow) {
+        // top row
+        for (i = startColumn; i <= endColumn; i++) {
+            results[startRow][i] = counter;
+            counter++;
+        }
+        startRow++;
+        // right column
+        for (let i = startRow; i <= endRow; i++) {
+            results[i][endRow] = counter;
+            counter++;
+        }
+        endColumn--;
+        // bottom row
+        for (let i = endColumn; i >= startColumn; i--) {
+            results[endRow][i] = counter;
+            counter++;
+        }
+        endRow--;
+        // start column
+        for (let i = endRow; i >= startRow; i--) {
+            results[i][startColumn] = counter;
+            counter++;
+        }
+        startColumn++;
+    }
+    // console.log(results);
+    return results;
+}
+
+matrix(3);
 module.exports = matrix;
