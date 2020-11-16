@@ -47,23 +47,23 @@ const steps = (n) => {
 // if the 'stair' string has a length === n then we are at the end of a row
 // if the length of the stair string is less than or equal to the row number we're working, we add a '#', otherwise add a space
 
-function steps(n, row = 0, stair = '') {
-    if (n === row) {
-        return;
-    }
+// function steps(n, row = 0, stair = '') {
+//     if (n === row) {
+//         return;
+//     }
 
-    if (n === stair.length) {
-        console.log(stair);
-        return steps(n, row + 1);
-    }
+//     if (n === stair.length) {
+//         console.log(stair);
+//         return steps(n, row + 1);
+//     }
 
-    if (stair.length <= row) {
-        stair += '#';
-    } else {
-        stair += ' ';
-    }
-    steps(n, row, stair);// to restart the process again
-}
+//     if (stair.length <= row) {
+//         stair += '#';
+//     } else {
+//         stair += ' ';
+//     }
+//     steps(n, row, stair);// to restart the process again
+// }
 
 steps(5);
 module.exports = steps;
