@@ -14,6 +14,32 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+// pseudocode
+// from 0 to n (iterate through rows)
+// // create an empty sting 'level'
+// // from 0 to ??? (columns)
+// // // if the column should have a #
+// // // // add a '#' to 'level'
+// // // else
+// /// // // add a space to 'level'
+// console log 'stair'
 
+function pyramid(n) {
+    const midpoint = Math.floor((2 * n -1) / 2);
+
+    for (let row = 0; row < n; row++) {
+        let level = '';
+
+        for (let column = 0; column < 2 * n - 1; column++) {
+            if (midpoint - row <= column && midpoint +row >= column) {
+                level += '#';
+            } else {
+                level += ' ';
+            }
+        }
+        console.log(level);
+    }
+}
+
+pyramid(10)
 module.exports = pyramid;
