@@ -28,6 +28,31 @@
 // }
 
 // solution 2 using recursion
+// function fib(n) {
+//     if (n < 2) {
+//         return n;
+//     }
+    
+//     return fib(n - 1) + fib(n -  2);
+// }
+
+// solution 3 using recursion
+// faster/effecint solution
+
+function memoize(fn) {
+    const cache = {};// the keys of the obj will be n
+    return function(...args) {// take any arguments and save it an array called args
+        if (cache[args]) {
+            return cache[args];
+        }
+
+        const result = fn.apply(this, args);
+        cache[args] = result;
+
+        return result;
+    };
+}
+
 function fib(n) {
     if (n < 2) {
         return n;
@@ -36,5 +61,7 @@ function fib(n) {
     return fib(n - 1) + fib(n -  2);
 }
 
-fib(9);
+fib = memoize(fib);
+
+// fib(5);
 module.exports = fib;
